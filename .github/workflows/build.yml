@@ -1,1 +1,25 @@
+name: Compilar APK
 
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el codigo
+        uses: actions/checkout@v4
+
+      - name: Compilar con Buildozer (imagen oficial de Kivy)
+        run: |
+          yes | docker run --rm -i \
+            --volume "${{ github.workspace }}":/home/user/hostcwd \
+            ghcr.io/kivy/buildozer:latest android debug
+
+      - name: Subir el APK como resultado
+        uses: actions/upload-artifact@v4
+        with:
+          name: inventario-movil-apk
+          path: bin/*.apk
