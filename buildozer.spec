@@ -8,7 +8,7 @@ source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
 version = 0.1
 
-requirements = python3,kivy,pyjnius,opencv,pyzbar,pycryptodome,pillow,pg8000,charset-normalizer,scramp,numpy
+requirements = python3,kivy,pyjnius,opencv,pyzbar,pycryptodome,pillow,pg8000,charset-normalizer,scramp,numpy==1.26.4
 
 orientation = portrait
 fullscreen = 0
